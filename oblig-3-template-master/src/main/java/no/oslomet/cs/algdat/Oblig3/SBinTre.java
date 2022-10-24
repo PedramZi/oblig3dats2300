@@ -83,7 +83,28 @@ public class SBinTre<T> {
     }
 
     public boolean leggInn(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        Node<T> r = rot;
+        z = null;
+        int komper = 0;
+
+        while (r != null){//while løkke som sjekker roten er ikke lik null
+            z = r; //z blir foreldre til rot
+            komper = komper.compare(verdi, r.verdi);//disse to verdiene blir komperer
+            r = komper < 0 ? r.venstre : r.høyre;//r flyttes
+        }
+
+        r =  new Node<>(verdi, z);//oppretter ny node
+
+        if (z == null){
+            rot = r;   //r blir rot når z er null
+        }else if(komper < 0){
+            z.venstre = r; //venstrebarn til z
+        } else {
+            z.høyre = r; //høyrebarn til z
+        }
+
+        antall ++;     //antall økes
+        return true;
     }
 
     public boolean fjern(T verdi) {
