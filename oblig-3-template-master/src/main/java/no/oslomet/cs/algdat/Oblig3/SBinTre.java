@@ -93,7 +93,7 @@ public class SBinTre<T> {
             r = komper < 0 ? r.venstre : r.høyre;//r flyttes
         }
 
-        r =  new Node<>(verdi, z);//oppretter ny node
+        r =  new Node<>(verdi, z);//oppretter ny node for verdien
 
         if (z == null){
             rot = r;   //r blir rot når z er null
