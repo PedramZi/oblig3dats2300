@@ -83,13 +83,12 @@ public class SBinTre<T> {
     }
 
     public boolean leggInn(T verdi) {
-        Node<T> r = rot;
-        z = null;
+        Node<T> r = rot, z = null;
         int komper = 0;
 
         while (r != null){//while løkke som sjekker roten er ikke lik null
             z = r; //z blir foreldre til rot
-            komper = komper.compare(verdi, r.verdi);//disse to verdiene blir komperer
+            komper = comp.compare(verdi, r.verdi);//disse to verdiene blir komperer
             r = komper < 0 ? r.venstre : r.høyre;//r flyttes
         }
 
@@ -123,7 +122,7 @@ public class SBinTre<T> {
             int komper = comp.compare(verdi, r.verdi); //sammenlignes den ønskende verdi inn med roten
             if(komper < 0){   //
                 r = r.venstre;
-            } if else (komper == 0){
+            } else if (komper == 0){
                 duplikater ++; //antallet av ønsknede tallet økes
                 r = r.høyre;
             }
