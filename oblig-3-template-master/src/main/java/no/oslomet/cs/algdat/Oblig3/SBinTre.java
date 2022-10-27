@@ -116,7 +116,19 @@ public class SBinTre<T> {
     }
 
     public int antall(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        Node<T> r = rot;
+        int duplikater = 0;
+
+        while( r != null){
+            int komper = comp.compare(verdi, r.verdi); //sammenlignes den ønskende verdi inn med roten
+            if(komper < 0){   //
+                r = r.venstre;
+            } if else (komper == 0){
+                duplikater ++; //antallet av ønsknede tallet økes
+                r = r.høyre;
+            }
+        }
+        return duplikater;
     }
 
     public void nullstill() {
