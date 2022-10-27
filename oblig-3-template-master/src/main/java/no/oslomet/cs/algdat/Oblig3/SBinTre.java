@@ -3,6 +3,7 @@ package no.oslomet.cs.algdat.Oblig3;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Objects;
 import java.util.StringJoiner;
 
 public class SBinTre<T> {
@@ -135,11 +136,31 @@ public class SBinTre<T> {
     }
 
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        Objects.requireNonNull(p); //sjekkes mot nullverdi
+
+        while(true){
+            if(p.venstre != null){//om venstrebarn til p ikke er lik null
+                p = p.venstre; //setter p lik venstre barn
+            } else if (p.høyre != null){//om høyrebarn ikke heller er lik null så
+                p = p.høyre; //setter p lik høyrebarn
+            } else {
+                return p;
+            }
+        }
     }
 
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        Node<T> f = p.forelder; //f er forelder
+
+        if (f == null){
+            return null; //om foreldre er null da er så kan ikke noe mer finnes
+        }
+
+        if (f.høyre == p || f.høyre == null){
+            return f;//foreldre returners dersom høyrebarn av foreldre er  p eller om det er null
+        } else {
+            return førstePostorden(f.høyre);//ellers resten ska sjke som førstepostorden
+        }
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
