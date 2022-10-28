@@ -3,7 +3,8 @@
 Denne oppgaven er en innlevering i Algoritmer og Datastrukturer. 
 Oppgaven er levert av følgende student:
 * Pedram Ziaei, S362046, s362046@oslomet.no
-
+![img.png](img.png)
+* oppgave 2 bare kjører og kjører. failer ikke, passerer ikke heller.
 
 # Oppgavebeskrivelse
 
